@@ -11,7 +11,7 @@ public class CommPort {
 
 		CommPortIdentifier serialPortId;
 
-		Enumeration enumComm;
+		Enumeration<?> enumComm;
 
 		enumComm = CommPortIdentifier.getPortIdentifiers();
 
