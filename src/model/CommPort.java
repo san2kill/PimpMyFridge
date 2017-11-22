@@ -5,8 +5,9 @@ import java.util.Enumeration;
 import gnu.io.CommPortIdentifier;
 
 public class CommPort {
+	    
 
-	public static void main(String[] args) {
+	public  void IdentifiyPort() {
 		System.out.println(" Program Started!!! ");
 
 		CommPortIdentifier serialPortId;

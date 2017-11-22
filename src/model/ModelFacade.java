@@ -11,6 +11,12 @@ public class ModelFacade implements IModel {
         super();
     }
 
+	@Override
+	public double getTemperature_Pelier() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 
 
 }
