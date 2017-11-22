@@ -3,6 +3,8 @@ package controller;
 import contract.IController;
 import contract.IModel;
 import contract.IView;
+import model.ModelFacade;
+import view.ViewFacade;
 
 
 public class ControllerFacade implements IController {
@@ -17,6 +19,7 @@ public class ControllerFacade implements IController {
 		this.model = model;  
 	}
 	
+
 	public void start() {
 	this.view.InitView(model);
 	}

@@ -14,7 +14,7 @@ import contract.IView;
 public class ViewFacade implements IView {
 
 	Frame frame;
-	Container cp;
+	
 	
 	public ViewFacade() {
 		super();

@@ -86,7 +86,7 @@ public class Serial implements SerialPortEventListener {
 	
 	}
 
-	public static void main(String[] args) throws Exception {
+/*	public static void main(String[] args) throws Exception {
 		Serial main = new Serial();
 		main.initialize();
 		Thread t = new Thread() {
@@ -102,5 +102,5 @@ public class Serial implements SerialPortEventListener {
 		};
 		t.start();
 		System.out.println(" Started ");
-	}
+	}*/
 }
