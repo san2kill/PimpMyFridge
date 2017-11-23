@@ -2,11 +2,11 @@ package model;
 
 
 import contract.IModel;
+import contract.IView;
 
 
 public class ModelFacade implements IModel {
 	
-
     public ModelFacade() {
         super();
     }
@@ -35,6 +35,11 @@ public class ModelFacade implements IModel {
 		return 0;
 	}
 
+	@Override
+	public void addObserver(IView view) {
+		// TODO Auto-generated method stub
+		
+	}
 
 
 }

@@ -19,6 +19,7 @@ public class ControllerFacade implements IController  {
 		super();
 		this.view = view;
 		this.model = model;  
+		this.model.addObserver(this.view);
 	}
 	
 	

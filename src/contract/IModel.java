@@ -10,5 +10,6 @@ public interface IModel {
 	public double  getHumidity();
 	public double getDewPoint();
 	public double getTemperature_dht22();
+	public void addObserver(IView view);
 
 }
