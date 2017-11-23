@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.Enumeration;
 
+import contract.GlobalVar;
 import gnu.io.CommPortIdentifier;
 import gnu.io.SerialPort;
 import gnu.io.SerialPortEvent;
@@ -104,17 +105,20 @@ public class Serial implements SerialPortEventListener {
 
 					//String[] chunks = inputLine.split(";");
 
-					System.out.println(inputLine);
+					/*System.out.println(inputLine);
 					System.out.println(inputLineDecoupage[0]);
 					System.out.println(inputLineDecoupage[1]);
 					System.out.println(inputLineDecoupage[2]);
-					System.out.println(inputLineDecoupage[3]);
+					System.out.println(inputLineDecoupage[3]);*/
 					setTemperature_Pelier(Double.parseDouble(inputLineDecoupage[0]));
-					setTemperature_dht22(Double.parseDouble(inputLineDecoupage[0]));
-					setHumdidty(Double.parseDouble(inputLineDecoupage[0]));
-					setDewPoint(Double.parseDouble(inputLineDecoupage[0]));
+					setTemperature_dht22(Double.parseDouble(inputLineDecoupage[2]));
+					setHumdidty(Double.parseDouble(inputLineDecoupage[1]));
+					setDewPoint(Double.parseDouble(inputLineDecoupage[3]));
+					
+					GlobalVar.GlobalVarTempFrigo=(int) Double.parseDouble(inputLineDecoupage[0]);
 
-					System.out.println("temperature= "+ getTemperature_Pelier());
+					//System.out.println("temperature= "+ getTemperature_Pelier());
+					//System.out.println("temperatureGlobalModel= "+ GlobalVar.GlobalVarTempFrigo);
 					
 					//System.out.println(chunks[0] + " \t " + chunks[1] + " \t " + chunks[2] + " \t ");
 				}

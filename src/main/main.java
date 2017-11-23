@@ -1,5 +1,8 @@
 package main;
 
+import java.util.concurrent.TimeUnit;
+
+import contract.GlobalVar;
 import controller.ControllerFacade;
 import model.ModelFacade;
 import model.Serial;
@@ -9,11 +12,29 @@ public class main {
 
 	public static void main(final String[] args) {
 
-		Serial temp = new Serial();
+		Serial valeur = new Serial();
+		
 
-		System.out.println("temp1=" + temp.getTemperature_Pelier());
 		final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
 		controller.start();
+		
+		int a =1;
+		while(a==1){
+			System.out.println("tempBas=" + valeur.getTemperature_Pelier());
+			System.out.println("tempHaut=" + valeur.getTemperature_dht22());
+			System.out.println("humidity=" + valeur.getHumdidty());
+			System.out.println("dewPoint=" + valeur.getDewPoint());
+
+
+
+			//System.out.println("temperatureGlobalMain= "+ GlobalVar.GlobalVarTempFrigo);
+			try {
+				TimeUnit.SECONDS.sleep(2);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
 
 	}
 

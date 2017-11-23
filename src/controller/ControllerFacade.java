@@ -7,7 +7,7 @@ import model.ModelFacade;
 import view.ViewFacade;
 
 
-public class ControllerFacade implements IController {
+public class ControllerFacade implements IController  {
 
 	private final IView  view;
 
