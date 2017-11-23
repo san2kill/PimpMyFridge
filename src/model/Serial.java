@@ -27,10 +27,10 @@ public class Serial implements SerialPortEventListener {
 	//recherche du port série connecté à l'arduino avec la methode initialize()
 	
 	
-	public void Serial(){
-		Serial main = new Serial();
-		main.initialize();
-		Thread t = new Thread() {
+	public Serial(){
+		//Serial main = new Serial();
+		this.initialize();
+		/*Thread t = new Thread() {
 			public void run() {
 				// the following line will keep this app alive for 1000 seconds,
 				// waiting for events to occur and responding to them (printing
@@ -41,9 +41,9 @@ public class Serial implements SerialPortEventListener {
 				}
 			}
 		};
-		t.start();
+		t.start();*/
 		System.out.println(" Started ");
-    	System.out.println(main.getTemperature_Pelier());
+    	System.out.println(this.getTemperature_Pelier());
 		
 	}
 	
@@ -114,7 +114,8 @@ public class Serial implements SerialPortEventListener {
 					setHumdidty(Double.parseDouble(inputLineDecoupage[0]));
 					setDewPoint(Double.parseDouble(inputLineDecoupage[0]));
 
-					System.out.println(getTemperature_Pelier());
+					System.out.println("temperature= "+ getTemperature_Pelier());
+					
 					//System.out.println(chunks[0] + " \t " + chunks[1] + " \t " + chunks[2] + " \t ");
 				}
 
@@ -126,8 +127,8 @@ public class Serial implements SerialPortEventListener {
 		// ones.
 	}
 
-	public static void main(String[] args) throws Exception {
-		/*Serial main = new Serial();
+	/*public static void main(String[] args) throws Exception {
+		Serial main = new Serial();
 		main.initialize();
 		Thread t = new Thread() {
 			public void run() {
@@ -141,8 +142,8 @@ public class Serial implements SerialPortEventListener {
 			}
 		};
 		t.start();
-		System.out.println(" Started ");*/
-	}
+		System.out.println(" Started ");
+	}*/
 
 	public double getTemperature_Pelier() {
 		return Temperature_Pelier;

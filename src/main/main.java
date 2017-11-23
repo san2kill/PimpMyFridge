@@ -14,12 +14,13 @@ public  class main {
     	
     	Serial temp = new Serial();
     	
-    	System.out.println(temp.getTemperature_Pelier());
+    	System.out.println("temp1="+temp.getTemperature_Pelier());
         final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
         	 controller.start();
+        
         	 
         	
-    
+   
         	 
     }
 
