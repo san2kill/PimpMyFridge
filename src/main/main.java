@@ -2,7 +2,6 @@ package main;
 
 import java.util.concurrent.TimeUnit;
 
-import contract.GlobalVar;
 import controller.ControllerFacade;
 import model.ModelFacade;
 import model.Serial;
@@ -24,7 +23,6 @@ public class main {
 			System.out.println("tempHaut=" + valeur.getTemperature_dht22());
 			System.out.println("humidity=" + valeur.getHumdidty());
 			System.out.println("dewPoint=" + valeur.getDewPoint());
-
 
 
 			//System.out.println("temperatureGlobalMain= "+ GlobalVar.GlobalVarTempFrigo);

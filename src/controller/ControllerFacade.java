@@ -1,12 +1,8 @@
 package controller;
 
-import java.util.Observer;
-
 import contract.IController;
 import contract.IModel;
 import contract.IView;
-import model.ModelFacade;
-import view.ViewFacade;
 
 
 public class ControllerFacade implements IController  {
@@ -35,12 +31,6 @@ public class ControllerFacade implements IController  {
 		return this.model;
 	}
 
-
-	@Override
-	public void addObserver(Observer obsController) {
-		// TODO Auto-generated method stub
-		
-	}
   
 
 } 

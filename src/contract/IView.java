@@ -10,6 +10,6 @@ public interface IView {
 
     	void InitView(IModel model);
 
-    	void update(IModel model);
+    	public void update(double temperature_Pelier);
     }
 

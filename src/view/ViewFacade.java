@@ -1,7 +1,6 @@
 package view;
 
 
-import java.awt.Container;
 import java.util.concurrent.TimeUnit;
 
 import javax.swing.JOptionPane;
@@ -29,28 +28,35 @@ public class ViewFacade implements IView {
 		
 		this.frame = new Frame(model);
 		
-		if (GlobalVar.GlobalVarPtRosee<15){
-			Frame.getFrameWarning().setVisible(true);
-		}
 		
-		/*int a =1;
+		int a =1;
 		while(a<1000){
 			try {
-				TimeUnit.SECONDS.sleep(10);
+				TimeUnit.SECONDS.sleep(2);
 			} catch (InterruptedException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			
-			PanelConsigne.labelTempFrigo.setText(""+GlobalVar.GlobalVarTempFrigo+"°C");
+			if (GlobalVar.GlobalVarTempFrigo<=GlobalVar.GlobalVarPtRosee){
+				Frame.getFrameWarning().setVisible(true);
+			}else {
+				Frame.getFrameWarning().setVisible(false);				
+			}
+			
+			PanelConsigne.labelTempFrigo.setText(GlobalVar.GlobalVarTempFrigo+"°C");
+			PanelConsigne.labelHumidity.setText(GlobalVar.GlobalVarHumidity+"%");
+			
+			XYLineChart_AWT.temperatureGraph.add(a,GlobalVar.GlobalVarTempFrigo);
+			
 			a=a+1;
-		}*/
+		}
 		
 		
 		
 	}
 	@Override
-	public void update(IModel model) {
+	public void update(double temperature_Pelier) {
 		// TODO Auto-generated method stub
 		
 	}

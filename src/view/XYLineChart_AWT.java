@@ -1,24 +1,23 @@
 package view;
 
-import java.awt.Color; 
-import java.awt.BasicStroke; 
+import java.awt.BasicStroke;
+import java.awt.Color;
 
-import org.jfree.chart.ChartPanel; 
-import org.jfree.chart.JFreeChart; 
-import org.jfree.data.xy.XYDataset; 
-import org.jfree.data.xy.XYSeries; 
-import org.jfree.ui.ApplicationFrame; 
-import org.jfree.ui.RefineryUtilities;
-
-import contract.GlobalVar;
-
-import org.jfree.chart.plot.XYPlot; 
-import org.jfree.chart.ChartFactory; 
-import org.jfree.chart.plot.PlotOrientation; 
-import org.jfree.data.xy.XYSeriesCollection; 
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
+import org.jfree.data.xy.XYDataset;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
+import org.jfree.ui.ApplicationFrame;
 
 public class XYLineChart_AWT extends ApplicationFrame {
+	
+	static XYSeries temperatureGraph;
+	XYSeriesCollection dataset;
 
    public XYLineChart_AWT( String applicationTitle, String chartTitle ) {
       super(applicationTitle);
@@ -42,11 +41,9 @@ public class XYLineChart_AWT extends ApplicationFrame {
    }
    
    private XYDataset createDataset( ) {
-      final XYSeries temperatureGraph = new XYSeries( "Température" ); 
-      
-      temperatureGraph.add( GlobalVar.GlobalVarTempFrigo , 1.0 );          
-      
-      final XYSeriesCollection dataset = new XYSeriesCollection( );          
+      this.temperatureGraph = new XYSeries( "Température" ); 
+            
+      this.dataset = new XYSeriesCollection( );          
       dataset.addSeries( temperatureGraph );
       return dataset;
    }

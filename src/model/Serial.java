@@ -1,25 +1,27 @@
 package model;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.util.Enumeration;
-import java.util.Observer;
 
 import contract.GlobalVar;
+import gnu.io.CommPort;
 import gnu.io.CommPortIdentifier;
 import gnu.io.SerialPort;
 import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
-import javafx.collections.ObservableList;
 
 
 
-public class Serial implements SerialPortEventListener {
+public class Serial extends AbstractModel implements SerialPortEventListener {
 	private double Temperature_Pelier;
 	private double Temperature_dht22;
 	private double Humdidty;
 	private double dewPoint;
+
 	//private ObservableList<Temperature_Pelier,Temperature_dht22,Humdidty,dewPoint>;
 	SerialPort serialPort;
 	private static final String PORT_SERIAL[] = { "COM5", // Windows
@@ -35,23 +37,28 @@ public class Serial implements SerialPortEventListener {
 	public Serial(){
 		//Serial main = new Serial();
 		this.initialize();
-		/*Thread t = new Thread() {
+	/*	Thread t = new Thread() {
 			public void run() {
 				// the following line will keep this app alive for 1000 seconds,
 				// waiting for events to occur and responding to them (printing
 				// incoming messages to console).
 				try {
-					Thread.sleep(1000000);
-				} catch (InterruptedException ie) {
+					Thread.sleep(100);
+				} catch (Exception e) {
+				}
+				CommPort choosenPort = null;
+				try {
+					PrintWriter output = new PrintWriter(choosenPort.getOutputStream());
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 			}
-		};
-		t.start();*/
+		};*/
 		System.out.println(" Started ");
     	System.out.println(this.getTemperature_Pelier());
 		
 	}
-	
 	
 	
 	public void initialize() {
@@ -120,10 +127,13 @@ public class Serial implements SerialPortEventListener {
 					setDewPoint(Double.parseDouble(inputLineDecoupage[3]));
 					
 					setChanged();
-			        notifyObservers(Humdidty);
+			        notifyObservers(this.Temperature_Pelier);
 					
 					GlobalVar.GlobalVarTempFrigo=(int) Double.parseDouble(inputLineDecoupage[0]);
-
+					GlobalVar.GlobalVarPtRosee=(int) Double.parseDouble(inputLineDecoupage[3]);
+					GlobalVar.GlobalVarHumidity=(int) Double.parseDouble(inputLineDecoupage[1]);
+					
+					
 					//System.out.println("temperature= "+ getTemperature_Pelier());
 					//System.out.println("temperatureGlobalModel= "+ GlobalVar.GlobalVarTempFrigo);
 					
@@ -207,6 +217,15 @@ public class Serial implements SerialPortEventListener {
 	public void setDewPoint(double dewPoint) {
 		this.dewPoint = dewPoint;
 	}
+
+
+
+	@Override
+	public double getHumidity() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 
 
 }

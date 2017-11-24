@@ -1,15 +1,9 @@
 package view;
 
 
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.Panel;
-import java.util.concurrent.TimeUnit;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import contract.GlobalVar;
 import contract.IModel;
 
 
